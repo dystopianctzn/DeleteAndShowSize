@@ -3,15 +3,21 @@ Console.Write("Введите путь к папке в формате С:\\...\
 string folderPath = Console.ReadLine();
 
 long sizeBeforeDelete = DirSize(new DirectoryInfo(@folderPath));
-Console.WriteLine("Размер папки {0} байт.", sizeBeforeDelete);
 
+if (sizeBeforeDelete == 0)
+{
+    Console.WriteLine("Папки не существует или она пустая");
+}
+else
+{
+    Console.WriteLine("Размер папки {0} байт.", sizeBeforeDelete);
 
-DeleteFiles(folderPath);
-long sizeAfterDelete = DirSize(new DirectoryInfo(@folderPath));
-Console.WriteLine("Было освобождено: {0} байт", sizeBeforeDelete - sizeAfterDelete);
+    DeleteFiles(folderPath);
+    long sizeAfterDelete = DirSize(new DirectoryInfo(@folderPath));
+    Console.WriteLine("Было освобождено: {0} байт", sizeBeforeDelete - sizeAfterDelete);
 
-
-Console.WriteLine("Текущий размер: {0} байт", sizeAfterDelete);
+    Console.WriteLine("Текущий размер: {0} байт", sizeAfterDelete);
+}
 
 static void DeleteFiles(string folderPath)
 {
