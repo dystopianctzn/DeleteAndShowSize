@@ -1,5 +1,5 @@
 ﻿
-Console.Write("Введите путь к папке: ");
+Console.Write("Введите путь к папке в формате С:\\...\\...\\... : ");
 string folderPath = Console.ReadLine();
 
 long sizeBeforeDelete = DirSize(new DirectoryInfo(@folderPath));
